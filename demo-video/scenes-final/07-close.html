@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <style>
+    .s7-wrap {
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      text-align: center;
+      gap: calc(var(--u) * 2.6);
+      height: 100%;
+    }
+    .g2-asym {
+      width: calc(var(--u) * 28);
+      height: auto;
+      filter: drop-shadow(0 0 calc(var(--u) * 2.4) rgba(52, 255, 138, 0.35));
+    }
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: calc(var(--u) * 2.0);
+      width: 100%;
+      max-width: calc(var(--u) * 116);
+    }
+    .pillar-card {
+      background: #0d1613;
+      border: 1.5px solid rgba(52, 255, 138, 0.36);
+      border-radius: calc(var(--u) * 1.8);
+      padding: calc(var(--u) * 1.6) calc(var(--u) * 2.0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--u) * 0.5);
+    }
+    .pillar-lbl {
+      font-family: var(--mono);
+      font-size: calc(var(--u) * 2.6);
+      color: var(--muted);
+    }
+    .pillar-val {
+      font-family: var(--mono);
+      font-size: calc(var(--u) * 3.0);
+      font-weight: 700;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <main class="stage">
+    <div class="safe s7-wrap">
+      <!-- Asymmetrical Even Realities G2 glasses SVG (right-eye optical waveguide lit) -->
+      <svg class="g2-asym" viewBox="0 0 240 76" fill="none">
+        <!-- Left lens frame -->
+        <rect class="stroke m" pathLength="1" style="--in:draw; --t:-0.2s; --in-dur:0.85s;"
+              x="12" y="12" width="84" height="52" rx="14" stroke="#46ad72" stroke-width="3.5" />
+        <!-- Right optical waveguide glow -->
+        <rect class="m" style="--in:fade; --t:1.85s; --in-dur:0.75s;"
+              x="144" y="12" width="84" height="52" rx="14" fill="rgba(52, 255, 138, 0.16)" />
+        <rect class="stroke m" pathLength="1" style="--in:draw; --t:-0.1s; --in-dur:0.85s;"
+              x="144" y="12" width="84" height="52" rx="14" stroke="#34ff8a" stroke-width="4" />
+        <!-- Mini HUD lines inside lit waveguide -->
+        <line class="stroke m" pathLength="1" style="--in:draw; --t:2.1s; --in-dur:0.4s;"
+              x1="160" y1="30" x2="212" y2="30" stroke="#34ff8a" stroke-width="3" />
+        <line class="stroke m" pathLength="1" style="--in:draw; --t:2.3s; --in-dur:0.4s;"
+              x1="160" y1="42" x2="196" y2="42" stroke="#5ee398" stroke-width="3" />
+        <!-- Nose bridge -->
+        <path class="stroke m" pathLength="1" style="--in:draw; --t:0.1s; --in-dur:0.55s;"
+              d="M96 31 C112 22, 128 22, 144 31" stroke="#34ff8a" stroke-width="3.5" />
+      </svg>
+
+      <h1 class="hero m" style="--in:blur; --t:-0.15s; --in-dur:0.75s; max-width:none;">
+        EvenPulse <span class="accent">AI</span>
+      </h1>
+
+      <p class="sub m" style="--in:rise; --t:1.85s; --in-dur:0.7s; font-size:calc(var(--u)*4.2); color:var(--fg); max-width:none;">
+        Read what matters. Write in seconds.
+      </p>
+
+      <div class="pillar-grid m" style="--in:rise; --t:4.3s; --in-dur:0.7s;">
+        <div class="pillar-card">
+          <span class="pillar-lbl">TELEGRAM BOT</span>
+          <span class="pillar-val">@evenpulse_bot</span>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-lbl">G2 WAVEGUIDE</span>
+          <span class="pillar-val num">576 x 288 px</span>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-lbl">EVEN HUB BUNDLE</span>
+          <span class="pillar-val">even-pulse.ehpk</span>
+        </div>
+      </div>
+
+      <div class="ep-pill live m"
+           style="--in:pop; --t:7.02s; --in-dur:0.45s;"
+           data-sfx="sting" data-sfx-intent="sting" data-sfx-vol="0.45">
+        <i data-icon="sparkles"></i> Track 01 · Track 04 · Built for Even Realities G2
+      </div>
+    </div>
+  </main>
+</body>
+</html>

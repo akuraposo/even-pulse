@@ -1,0 +1,9 @@
+[
+  { "id": "01-hook",  "start": "Every founder knows",   "chapter": "The Glanceable HUD" },
+  { "id": "02-triage","start": "When an urgent",        "chapter": "Live Telegram Triage" },
+  { "id": "03-reply", "start": "One tap on",            "chapter": "1-Tap AI Reply" },
+  { "id": "04-voice", "start": "Hold the temple",       "chapter": "Voice Copilot" },
+  { "id": "05-brief", "start": "Double tap anytime",    "chapter": "AI Work Brief" },
+  { "id": "06-sdk",   "start": "Under the hood",        "chapter": "Even Hub SDK Proof" },
+  { "id": "07-close", "start": "EvenPulse Read what",   "chapter": "Summary" }
+]

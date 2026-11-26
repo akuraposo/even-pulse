@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <script src="../out/anchors.js"></script>
+  <script src="../lib/words.js"></script>
+  <style>
+    .s3-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      gap: calc(var(--u) * 3.4);
+      align-items: center;
+      padding-top: calc(var(--u) * 4.5);
+    }
+    .s3-grid > * {
+      min-width: 0;
+    }
+    .g2-stack {
+      position: relative;
+      display: grid;
+      min-width: 0;
+    }
+    .g2-stack > .g2-lens-state {
+      grid-area: 1 / 1;
+      min-width: 0;
+    }
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.6);
+      min-width: 0;
+    }
+    .sent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      padding: 0.35em 0.85em;
+      border-radius: 999px;
+      background: #34ff8a;
+      color: #03150a;
+      font-weight: 800;
+      font-size: calc(var(--u) * 2.75);
+    }
+    /* Cursor enters only as it moves to click R1 Ring Tap inside the 4.96s-5.89s pause */
+    .cursor-fade {
+      opacity: 0;
+      animation:
+        cursor-vis 2.2s var(--ease-out) 4.4s both,
+        cursor-move 0.85s var(--ease-inout) 4.45s both;
+    }
+    @keyframes cursor-vis {
+      0% { opacity: 0; }
+      12%, 82% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <header class="hud">
+    <p class="kicker m" style="--in:rise; --t:-0.2s;"><b>02</b> Read &amp; Write in Under 3 Seconds</p>
+  </header>
+
+  <main class="stage">
+    <div class="safe s3-grid">
+      <div class="cursor cursor-fade"
+           style="offset-path: path('M 920 930 C 780 870, 600 820, 445 795');">
+        <div class="ripple" style="animation: ripple 0.55s var(--ease-out) 5.25s both;"></div>
+      </div>
+
+      <!-- Left: G2 HUD seamless cross-overlap (no dark dip) from MESSAGE -> INBOX (2) -->
+      <div>
+        <div class="g2-bezel m" style="--in:rise; --t:-0.2s;">
+          <div class="g2-bezel-top">
+            <span>G2 MESSAGE VIEW</span>
+            <span>R1 RING GESTURE</span>
+          </div>
+          <div class="g2-stack">
+            <div class="g2-lens g2-lens-state m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:5.32s; --dur-out:0.22s;">
+              <div class="g2-hdr">[P0] Alex Chen - Founders</div>
+              <div class="g2-box">Urgent: TVM wants G2 demo link before our 3 PM pitch.</div>
+              <ul class="g2-items">
+                <li class="g2-row selected"><i data-icon="corner-down-right"></i> Approve Ship: Push v1.2 live now.</li>
+                <li class="g2-row"><i data-icon="corner-down-right"></i> Hold 10m: Verify webhook first.</li>
+                <li class="g2-row"><i data-icon="corner-down-right"></i> Send Link: Drop staging URL here.</li>
+              </ul>
+              <div class="g2-ftr">TAP: 1-Tap TG Reply | 2xTAP: Back</div>
+            </div>
+
+            <div class="g2-lens g2-lens-state m" style="--in:fade; --t:5.35s; --in-dur:0.25s;">
+              <div class="g2-hdr">EVENPULSE INBOX (2)  |  TG:LIVE</div>
+              <ul class="g2-items">
+                <li class="g2-row selected">[OK] Alex Chen: Approve v1.2 deploy?</li>
+                <li class="g2-row">[P1] Maya Lin: PR #48 BLE latency fix</li>
+                <li class="g2-row">[P2] Daos Hub: Hackathon Sun 19:59</li>
+              </ul>
+              <div class="g2-ftr toast"><i data-icon="check"></i> Sent "Approve Ship" to Alex Chen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hw-bar">
+          <span class="hw-btn"><i data-icon="chevron-right"></i> Scroll</span>
+          <span class="hw-btn ring m"
+                style="--in:press; --t:5.25s; --in-dur:0.4s;"
+                data-sfx="click" data-sfx-intent="button-press" data-sfx-vol="0.95">
+            <i data-icon="circle-dot"></i> R1 Ring Tap
+          </span>
+          <span class="hw-btn">2x Tap Back</span>
+        </div>
+      </div>
+
+      <!-- Right: Live Telegram delivery + real captured app proof -->
+      <div class="right-col">
+        <div class="tg-win m" style="--in:right; --t:0.1s;">
+          <div class="tg-hdr">
+            <span><i data-icon="send" style="color: var(--accent);"></i> @evenpulse_bot</span>
+            <span class="ep-pill live">LIVE</span>
+          </div>
+          <div class="tg-body">
+            <div class="tg-msg">
+              <span class="tg-meta">Alex Chen</span>
+              Approve v1.2 deploy before 3 PM pitch?
+            </div>
+            <div class="tg-msg out m" style="--in:pop; --t:5.55s; --in-dur:0.45s;">
+              <span class="tg-meta">You via EvenPulse G2</span>
+              Approved — push v1.2 live now.
+            </div>
+          </div>
+        </div>
+
+        <div class="live-shot m" data-texture style="--in:rise; --t:12.02s; --in-dur:0.45s;"
+             data-sfx="success" data-sfx-intent="success" data-sfx-vol="1.3">
+          <div class="live-bar">
+            <span>REAL APP CAPTURE</span>
+            <span class="sent-badge" style="font-size: calc(var(--u) * 2.3); padding: 0.15em 0.6em;"><i data-icon="circle-check"></i> Delivered Live</span>
+          </div>
+          <img src="../assets/live-g2-replied.png" alt="Real EvenPulse replied state">
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

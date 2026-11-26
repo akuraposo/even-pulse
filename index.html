@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EvenPulse: Heads-Up Telegram &amp; AI Work Copilot for Even G2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-dot"></div>
+          <div>
+            <h1>EvenPulse <span class="badge-g2">G2 HUD</span></h1>
+            <p class="subtitle">Telegram + AI Work Copilot · Even Realities &ldquo;Heads Up&rdquo;</p>
+          </div>
+        </div>
+        <div class="status-pills">
+          <span id="pill-sdk" class="pill pill-muted">SDK: Mirror Mode</span>
+          <span id="pill-tg" class="pill pill-muted">Telegram: Demo</span>
+          <span id="pill-ai" class="pill pill-muted">AI: Demo Engine</span>
+          <button id="btn-reset" type="button" class="btn-ghost" title="Reset demo inbox &amp; tasks">
+            Reset Demo
+          </button>
+        </div>
+      </header>
+
+      <div id="global-toast" class="global-toast hidden"></div>
+
+      <main class="layout">
+        <!-- LEFT: Even G2 576x288 Optical Micro-LED Mirror + Hardware Controls -->
+        <section class="panel hud-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Even G2 Optical Display</h2>
+              <span class="meta">576 × 288 px · 4-bit Micro-LED Waveguide · Live SDK Sync</span>
+            </div>
+            <div class="view-switcher">
+              <button type="button" class="chip" data-view="INBOX">Inbox</button>
+              <button type="button" class="chip" data-view="BRIEF">Work Brief</button>
+              <button type="button" class="chip" data-view="DIGEST">Digest</button>
+              <button type="button" class="chip" data-view="VOICE">Voice</button>
+            </div>
+          </div>
+
+          <div class="glasses-bezel">
+            <div class="bezel-top">
+              <span class="hw-badge">● G2 RIGHT EYE WAVEGUIDE</span>
+              <span class="hw-badge" id="hw-clock">--:--</span>
+              <span class="hw-badge">◎ R1 RING READY</span>
+            </div>
+            <div class="glasses-lens">
+              <div id="g2-screen" class="g2-screen">
+                <div id="g2-header" class="g2-header">EVENPULSE LOADING...</div>
+                <div id="g2-body" class="g2-body hidden"></div>
+                <ul id="g2-list" class="g2-list"></ul>
+                <div id="g2-footer" class="g2-footer">Initializing @evenrealities/even_hub_sdk...</div>
+              </div>
+              <div id="g2-menu-overlay" class="g2-menu-overlay hidden">
+                <div class="g2-menu-title">G2 OS CONTEXTUAL MENU</div>
+                <button type="button" class="g2-menu-item" data-menu-id="1">1. Telegram Inbox</button>
+                <button type="button" class="g2-menu-item" data-menu-id="2">2. AI Work Brief</button>
+                <button type="button" class="g2-menu-item" data-menu-id="3">3. Channel Digest</button>
+                <button type="button" class="g2-menu-item" data-menu-id="4">4. Voice Copilot</button>
+                <button type="button" class="g2-menu-item" data-menu-id="5">5. Send Brief to TG</button>
+              </div>
+            </div>
+            <div class="bezel-caption">
+              <span>Micro-LED 4-bit Green (textColor 1–4)</span>
+              <span id="g2-view-indicator">VIEW: INBOX</span>
+            </div>
+          </div>
+
+          <div class="hardware-controls">
+            <div class="control-group">
+              <span class="control-label">Temple Touchpad &amp; R1 Ring Controls</span>
+              <div class="control-row">
+                <button id="hw-up" type="button" class="btn-hw">▲ Scroll <kbd>↑</kbd></button>
+                <button id="hw-down" type="button" class="btn-hw">▼ Scroll <kbd>↓</kbd></button>
+                <button id="hw-click" type="button" class="btn-hw btn-primary">● Tap <kbd>↵</kbd></button>
+                <button id="hw-ring" type="button" class="btn-hw btn-accent">◎ R1 Ring Tap</button>
+                <button id="hw-dbl" type="button" class="btn-hw">●● 2× Tap <kbd>Esc</kbd></button>
+                <button id="hw-menu" type="button" class="btn-hw">☰ OS Menu</button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <span class="control-label">Push-to-Talk Voice Copilot (Hold Temple / Ring)</span>
+              <div class="voice-bar">
+                <button id="hw-voice" type="button" class="btn-voice">🎙 Hold / Speak</button>
+                <input
+                  id="voice-input"
+                  type="text"
+                  placeholder='Say or type: "Reply to Alex I am joining in 5 mins"'
+                />
+                <button id="btn-voice-send" type="button" class="btn-primary">Run</button>
+              </div>
+              <div class="preset-chips">
+                <button type="button" class="preset-btn" data-voice="Reply to Alex that I am joining in 5 minutes">
+                  &ldquo;Reply to Alex: joining in 5m&rdquo;
+                </button>
+                <button
+                  type="button"
+                  class="preset-btn"
+                  data-voice="Add task to submit EvenPulse to DoraHacks before Sunday"
+                >
+                  &ldquo;Add task: submit to DoraHacks&rdquo;
+                </button>
+                <button type="button" class="preset-btn" data-voice="Give me my work brief">
+                  &ldquo;Give me my work brief&rdquo;
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: Companion Control Center (Telegram, AI Work, Config, Telemetry) -->
+        <section class="panel companion-panel">
+          <div class="tabs" role="tablist">
+            <button type="button" class="tab active" data-tab="inbox">Telegram &amp; Tasks</button>
+            <button type="button" class="tab" data-tab="setup">Live API Setup</button>
+            <button type="button" class="tab" data-tab="telemetry">SDK Telemetry</button>
+          </div>
+
+          <!-- TAB 1: Telegram & Work Tasks -->
+          <div id="tab-inbox" class="tab-content active">
+            <div class="section-bar">
+              <h3>Priority Telegram Feed</h3>
+              <button id="btn-sim-msg" type="button" class="btn-accent">+ Simulate Urgent TG</button>
+            </div>
+            <div id="companion-messages" class="card-list"></div>
+
+            <div class="section-bar" style="margin-top: 20px">
+              <h3>AI Work Brief &amp; Tasks</h3>
+              <button id="btn-push-brief" type="button" class="btn-accent">↗ Send Brief to TG</button>
+            </div>
+            <div id="meeting-card" class="meeting-card"></div>
+            <div id="companion-tasks" class="task-list"></div>
+            <form id="quick-task-form" class="quick-add-row">
+              <input id="quick-task-input" type="text" placeholder="+ Add work task to G2 Brief..." />
+              <button type="submit" class="btn-ghost">Add</button>
+            </form>
+          </div>
+
+          <!-- TAB 2: Live Telegram & LLM Config -->
+          <div id="tab-setup" class="tab-content">
+            <p class="help-text">
+              Works out of the box in Demo Mode. To connect live integrations, paste a Telegram Bot Token from
+              <code>@BotFather</code> and an optional OpenRouter, Gemini, or OpenAI API key.
+            </p>
+            <form id="config-form" class="config-form">
+              <label>
+                <span>Backend Server URL (optional, for standalone .ehpk or tunnel)</span>
+                <input id="cfg-api-base" type="url" placeholder="Same origin / http://127.0.0.1:3001" />
+              </label>
+              <label>
+                <span>Telegram Bot Token</span>
+                <input id="cfg-tg-token" type="password" placeholder="123456789:AAH..." autocomplete="off" />
+              </label>
+              <label>
+                <span>Default Telegram Chat ID (auto-detected when you send /start to your bot)</span>
+                <input id="cfg-tg-chat" type="text" placeholder="Auto-filled on /start or paste ID" />
+              </label>
+              <div class="form-row">
+                <label>
+                  <span>AI Provider</span>
+                  <select id="cfg-ai-provider">
+                    <option value="openrouter">OpenRouter</option>
+                    <option value="gemini">Google Gemini</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="demo">Demo AI (No Key)</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Model (Optional)</span>
+                  <input id="cfg-ai-model" type="text" placeholder="openai/gpt-4o-mini" />
+                </label>
+              </div>
+              <label>
+                <span>AI API Key</span>
+                <input id="cfg-ai-key" type="password" placeholder="sk-or-... or AIza..." autocomplete="off" />
+              </label>
+              <button type="submit" class="btn-primary">Connect Live Integrations</button>
+              <div id="cfg-feedback" class="cfg-feedback"></div>
+            </form>
+            <div class="bot-commands-box">
+              <h4>Calendar Sync (ICS URL) &amp; Next Meeting</h4>
+              <form id="calendar-form" class="config-form" style="margin-bottom: 12px">
+                <input id="cfg-ics-url" type="url" placeholder="https://calendar.google.com/calendar/ical/.../basic.ics" />
+                <div class="form-row">
+                  <input id="cfg-meet-title" type="text" placeholder="Or quick edit meeting title..." />
+                  <input id="cfg-meet-time" type="text" placeholder="e.g. In 15m (15:30)" />
+                </div>
+                <button type="submit" class="btn-accent">Sync Calendar / Update Meeting</button>
+                <div id="cal-feedback" class="cfg-feedback"></div>
+              </form>
+              <h4>Telegram Bot Slash Commands</h4>
+              <ul>
+                <li><code>/start</code>: Auto-pair chat ID &amp; show interactive inline buttons</li>
+                <li><code>/urgent &lt;message&gt;</code>: Push P0 alert straight to G2 HUD</li>
+                <li><code>/task &lt;title&gt;</code>: Add a work task to your G2 Brief</li>
+                <li><code>/brief</code>: Reply with your next meeting &amp; open tasks</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TAB 3: SDK Telemetry -->
+          <div id="tab-telemetry" class="tab-content">
+            <div class="section-bar">
+              <h3>@evenrealities/even_hub_sdk Event Stream</h3>
+              <span class="meta">Validated against v0.0.16 PB schema</span>
+            </div>
+            <div id="telemetry-log" class="telemetry-log"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

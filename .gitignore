@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+a.txt
+*.ehpk
+*.mp4
+data/state.json
+demo-video/out/
+demo-video/out-final/
+demo-video/assets/
+

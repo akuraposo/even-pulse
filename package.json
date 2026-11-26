@@ -1,0 +1,33 @@
+{
+  "name": "even-pulse",
+  "version": "1.0.0",
+  "description": "EvenPulse: Heads-up Telegram and AI work copilot for Even Realities G2 smart glasses",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n API,HUD -c cyan,green \"tsx watch server/index.ts\" \"vite\"",
+    "dev:hud": "vite",
+    "dev:api": "tsx watch server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 5173",
+    "test": "vitest run",
+    "sim": "npx @evenrealities/evenhub-simulator --glow http://localhost:5173",
+    "qr": "npx @evenrealities/evenhub-cli qr --url http://localhost:5173",
+    "pack": "npm run build && npx @evenrealities/evenhub-cli pack app.json dist -o even-pulse.ehpk"
+  },
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "^0.0.16",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.0",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "concurrently": "^9.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "vitest": "^4.1.0"
+  }
+}

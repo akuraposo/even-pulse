@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <script src="../out/anchors.js"></script>
+  <script src="../lib/words.js"></script>
+  <style>
+    .s2-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: calc(var(--u) * 4.8);
+      align-items: center;
+      padding-top: calc(var(--u) * 4.5);
+    }
+    .s2-grid > * {
+      min-width: 0;
+    }
+    .triage-chip-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: calc(var(--u) * 1.1);
+      margin-top: calc(var(--u) * 1.4);
+    }
+    .triage-chip-row > * {
+      white-space: nowrap;
+    }
+    .swap-slot {
+      position: relative;
+      display: grid;
+    }
+    .swap-slot > * {
+      grid-area: 1 / 1;
+    }
+    .g2-items-anim {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.1);
+    }
+    /* Smoothly slide existing 2 items down by one row height when Alex P0 arrives at 3.85s */
+    .shift-down {
+      animation: row-shift 0.45s var(--ease-out) 3.8s both;
+    }
+    @keyframes row-shift {
+      from { translate: 0 calc(var(--u) * -5.8); }
+      to { translate: 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <header class="hud">
+    <p class="kicker m" style="--in:rise; --t:-0.2s;"><b>01</b> Live Telegram Triage</p>
+  </header>
+
+  <main class="stage">
+    <div class="safe s2-grid">
+      <svg class="links">
+        <path data-from="#tg-urgent" data-to="#g2-new-row" data-draw data-at="3.78" data-dur="0.55" data-dash="6 8" />
+      </svg>
+
+      <!-- Left: Live Telegram Bot receives urgent pitch message -->
+      <div class="tg-win m" id="tg-card" style="--in:left; --t:-0.2s;">
+        <div class="tg-hdr">
+          <span><i data-icon="bot" style="color: var(--accent);"></i> @evenpulse_bot</span>
+          <span class="ep-pill live">LIVE BOT</span>
+        </div>
+        <div class="tg-body">
+          <div class="tg-msg m" id="tg-urgent" style="--in:rise; --t:0.35s;">
+            <span class="tg-meta">Alex Chen - Founders &amp; Product</span>
+            Urgent: TVM Ventures partner wants the G2 demo link 15 mins before our 3 PM pitch. Approve v1.2 deploy now?
+          </div>
+          <div class="triage-chip-row m"
+               style="--in:pop; --t:3.82s; --in-dur:0.45s;"
+               data-sfx="blip" data-sfx-intent="notification" data-sfx-vol="0.85">
+            <span class="prio-tag prio-p0">P0 URGENT</span>
+            <span class="ep-pill"><i data-icon="zap"></i> &lt;=44-char HUD line</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: G2 HUD starts with 2 rows (no empty slot!), then inserts [P0] Alex Chen -> INBOX (3) -->
+      <div class="g2-bezel m" style="--in:right; --t:-0.15s;">
+        <div class="g2-bezel-top">
+          <span>576 x 288 MICRO-LED</span>
+          <span class="ep-pill live">TG:LIVE</span>
+        </div>
+        <div class="g2-lens">
+          <div class="swap-slot">
+            <div class="g2-hdr m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:3.65s; --dur-out:0.15s;">EVENPULSE INBOX (2)  |  TG:LIVE</div>
+            <div class="g2-hdr m" style="--in:fade; --t:3.82s; --in-dur:0.25s;">EVENPULSE INBOX (3)  |  TG:LIVE</div>
+          </div>
+
+          <ul class="g2-items g2-items-anim">
+            <li class="g2-row selected m" id="g2-new-row" style="--in:rise; --t:3.85s; --in-dur:0.45s;">
+              [P0] Alex Chen: Approve v1.2 deploy?
+            </li>
+            <li class="g2-row shift-down">[P1] Maya Lin: PR #48 BLE latency fix</li>
+            <li class="g2-row shift-down">[P2] Daos Hub: Hackathon Sun 19:59</li>
+          </ul>
+
+          <div class="swap-slot">
+            <div class="g2-ftr m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:3.65s; --dur-out:0.15s;">SCROLL: Pick  |  TAP: AI Reply  |  2xTAP: Brief</div>
+            <div class="g2-ftr toast m" style="--in:fade; --t:3.9s; --in-dur:0.25s;">New urgent Telegram message triaged!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <style>
+    .s4-wrap {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: calc(var(--u) * 3);
+      align-content: center;
+      padding-top: calc(var(--u) * 4);
+    }
+    .voice-dock {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--u) * 1.8);
+      padding: calc(var(--u) * 1.8) calc(var(--u) * 2.2);
+      border-radius: calc(var(--u) * 2);
+      background: #0d1411;
+      border: 1.5px solid rgba(52, 255, 138, 0.35);
+      box-shadow: var(--lift);
+    }
+    .swap-pill {
+      position: relative;
+      display: grid;
+    }
+    .swap-pill > * {
+      grid-area: 1 / 1;
+    }
+    .mic-idle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.55em 1.1em;
+      border-radius: calc(var(--u) * 1.2);
+      font-weight: 700;
+      font-size: calc(var(--u) * 2.85);
+      background: rgba(52, 255, 138, 0.12);
+      color: #34ff8a;
+      border: 1.5px solid rgba(52, 255, 138, 0.45);
+      white-space: nowrap;
+    }
+    .mic-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.55em 1.1em;
+      border-radius: calc(var(--u) * 1.2);
+      font-weight: 700;
+      font-size: calc(var(--u) * 2.85);
+      background: rgba(255, 92, 114, 0.24);
+      color: #ffd3da;
+      border: 1.5px solid rgba(255, 92, 114, 0.72);
+      white-space: nowrap;
+    }
+    .voice-cmd {
+      font-family: var(--mono);
+      font-size: calc(var(--u) * 2.95);
+      color: var(--fg);
+      flex: 1;
+    }
+    .wave {
+      display: inline-flex;
+      align-items: center;
+      gap: calc(var(--u) * 0.6);
+      height: calc(var(--u) * 4);
+    }
+    .wave i {
+      display: block;
+      width: calc(var(--u) * 0.65);
+      height: 100%;
+      border-radius: 999px;
+      background: #34ff8a;
+      transform-origin: center;
+    }
+    .g2-stack {
+      position: relative;
+      display: grid;
+    }
+    .g2-stack > .g2-lens-state {
+      grid-area: 1 / 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <header class="hud">
+    <p class="kicker m" style="--in:rise; --t:-0.2s;"><b>03</b> Hands-Free Voice Copilot</p>
+  </header>
+
+  <main class="stage">
+    <div class="safe s4-wrap">
+      <!-- Voice command bar: starts idle, activates at 2.42s inside 2.36s-3.47s pause -->
+      <div class="voice-dock m" style="--in:rise; --t:-0.2s;">
+        <div class="swap-pill">
+          <span class="mic-idle m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:2.22s; --dur-out:0.15s;">
+            <i data-icon="mic"></i> Hold / Speak
+          </span>
+          <span class="mic-live m"
+                style="--in:pop; --t:2.42s; --in-dur:0.28s;"
+                data-sfx="toggle-on" data-sfx-intent="toggle-on" data-sfx-vol="0.9">
+            <i data-icon="mic"></i> Listening...
+          </span>
+        </div>
+        <span class="voice-cmd" data-type data-at="2.6" data-dur="2.0">"Add task to submit EvenPulse to DoraHacks before Sunday"</span>
+        <div class="wave" id="voice-wave">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <!-- G2 Lens: Idle prompt -> Listening -> Parsed Action Result -->
+      <div class="g2-bezel m" style="--in:rise; --t:-0.1s;">
+        <div class="g2-bezel-top">
+          <span>G2 BEAMFORMING MIC (16KHZ PCM)</span>
+          <span>INTENT ROUTER</span>
+        </div>
+        <div class="g2-stack">
+          <div class="g2-lens g2-lens-state m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:2.22s; --dur-out:0.15s;">
+            <div class="g2-hdr">VOICE COPILOT  |  HOLD TEMPLE OR RING</div>
+            <div class="g2-box">Hold Temple or Ring to speak.</div>
+            <div class="g2-ftr">HOLD: Capture 16kHz PCM Audio</div>
+          </div>
+
+          <div class="g2-lens g2-lens-state m" style="--in:fade; --t:2.42s; --in-dur:0.25s; --out:fade-out; --out-t:4.85s; --dur-out:0.2s;">
+            <div class="g2-hdr" style="color:#34ff8a;">G2 MIC ACTIVE  |  SPEAK COMMAND</div>
+            <div class="g2-box">Listening...<br>Parsing voice command</div>
+            <div class="g2-ftr">RELEASE: Execute Command</div>
+          </div>
+
+          <div class="g2-lens g2-lens-state m" style="--in:fade; --t:4.92s; --in-dur:0.3s;">
+            <div class="g2-hdr">VOICE COPILOT  |  ACTION RESULT</div>
+            <div class="g2-box">
+              <strong>Task Added to Work Brief</strong><br>
+              Submit EvenPulse to DoraHacks before Sunday<br>
+              Intent: create_task · Due: Today
+            </div>
+            <div class="g2-ftr toast m"
+                 style="--in:fade; --t:8.32s; --in-dur:0.3s;"
+                 data-sfx="ding" data-sfx-intent="confirmation" data-sfx-vol="0.9">
+              <i data-icon="circle-check"></i> Task Synced
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const bars = Array.from(document.querySelectorAll('#voice-wave i'));
+    window.__video.on((ms) => {
+      const t = ms / 1000;
+      const active = (t >= 2.4 && t < 4.9) ? 1 : 0.2;
+      bars.forEach((b, idx) => {
+        const s = 0.28 + 0.72 * Math.abs(Math.sin(t * 8.5 + idx * 0.9)) * active;
+        b.style.transform = `scaleY(${s.toFixed(3)})`;
+      });
+    });
+  </script>
+</body>
+</html>

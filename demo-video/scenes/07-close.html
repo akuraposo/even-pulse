@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <script src="../out/anchors.js"></script>
+  <script src="../lib/words.js"></script>
+  <style>
+    .s7-wrap {
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      text-align: center;
+      gap: calc(var(--u) * 3);
+      height: 100%;
+    }
+    .g2-glyph {
+      width: calc(var(--u) * 18);
+      height: auto;
+      color: #34ff8a;
+      filter: drop-shadow(0 0 calc(var(--u) * 2.5) rgba(52, 255, 138, 0.4));
+    }
+    .track-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: calc(var(--u) * 1.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <main class="stage">
+    <div class="safe s7-wrap">
+      <!-- Minimalist Even Realities G2 SVG mark -->
+      <svg class="g2-glyph" viewBox="0 0 180 64" fill="none">
+        <rect class="stroke m" pathLength="1" style="--in:draw; --t:-0.2s; --in-dur:0.9s;"
+              x="8" y="12" width="66" height="40" rx="12" stroke="#34ff8a" stroke-width="3.5" />
+        <rect class="stroke m" pathLength="1" style="--in:draw; --t:-0.1s; --in-dur:0.9s;"
+              x="106" y="12" width="66" height="40" rx="12" stroke="#34ff8a" stroke-width="3.5" />
+        <path class="stroke m" pathLength="1" style="--in:draw; --t:0.1s; --in-dur:0.6s;"
+              d="M74 28 C84 22, 96 22, 106 28" stroke="#34ff8a" stroke-width="3.5" />
+      </svg>
+
+      <h1 class="hero m" style="--in:blur; --t:-0.15s; --in-dur:0.75s; max-width:none;">
+        EvenPulse <span class="accent">AI</span>
+      </h1>
+
+      <p class="sub m" style="--in:rise; --t:1.85s; --in-dur:0.7s; font-size:calc(var(--u)*4.2); color:var(--fg); max-width:none;">
+        Read what matters. Write in seconds.
+      </p>
+
+      <div class="track-row m" style="--in:rise; --t:4.5s; --in-dur:0.7s;">
+        <span class="ep-pill live"><i data-icon="message-circle"></i> Track 01: Messaging &amp; News</span>
+        <span class="ep-pill live"><i data-icon="cpu"></i> Track 04: AI Assistants &amp; Work</span>
+        <span class="ep-pill live"><i data-icon="bot"></i> @evenpulse_bot · even-pulse.ehpk</span>
+      </div>
+
+      <div class="ep-pill live m"
+           style="--in:pop; --t:7.02s; --in-dur:0.45s;"
+           data-sfx="sting" data-sfx-intent="sting" data-sfx-vol="0.45">
+        <i data-icon="sparkles"></i> Ready on Even G2
+      </div>
+    </div>
+  </main>
+</body>
+</html>

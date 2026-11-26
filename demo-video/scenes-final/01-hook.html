@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <style>
+    .s1-wrap {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      align-content: center;
+      gap: calc(var(--u) * 3.2);
+      height: 100%;
+    }
+    .s1-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(var(--u) * 2);
+    }
+    .s1-pills {
+      display: flex;
+      gap: calc(var(--u) * 1.2);
+    }
+    .s1-hero-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: calc(var(--u) * 3.4);
+      align-items: center;
+    }
+    .s1-hero-row > * {
+      min-width: 0;
+    }
+    .s1-copy {
+      position: relative;
+      display: grid;
+      align-items: center;
+    }
+    .s1-copy > .swap-slot {
+      grid-area: 1 / 1;
+    }
+    .noise-stack {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.6);
+    }
+    .noise-chip {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--u) * 1.2);
+      padding: calc(var(--u) * 1.25) calc(var(--u) * 1.8);
+      border-radius: calc(var(--u) * 1.4);
+      background: rgba(255, 92, 114, 0.14);
+      border: 1.5px solid rgba(255, 92, 114, 0.45);
+      color: #ffd6dc;
+      font-size: calc(var(--u) * 2.75);
+      font-weight: 600;
+    }
+    .calm-stack {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.3);
+    }
+    .calm-card {
+      padding: calc(var(--u) * 1.7) calc(var(--u) * 2.1);
+      border-radius: calc(var(--u) * 1.6);
+      background: rgba(52, 255, 138, 0.09);
+      border: 1.5px solid rgba(52, 255, 138, 0.48);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <main class="stage">
+    <div class="safe s1-wrap">
+      <!-- Frame 0 thumbnail rests crisp and clear -->
+      <div class="s1-top m" style="--in:fade; --t:calc(-1 * var(--dur-in));">
+        <div class="ep-brand">
+          <span class="ep-dot"></span>
+          <span>EvenPulse</span>
+          <span class="ep-badge-g2">G2 HUD</span>
+        </div>
+        <div class="s1-pills">
+          <span class="ep-pill live"><i data-icon="radio"></i> Telegram: @evenpulse_bot</span>
+          <span class="ep-pill"><i data-icon="glasses"></i> 576 x 288 Optical</span>
+        </div>
+      </div>
+
+      <div class="s1-hero-row">
+        <!-- Left: Even G2 Optical Display resting at Frame 0 with sheen at 4.65s -->
+        <div class="g2-bezel m" style="--in:rise; --t:calc(-1 * var(--dur-in));">
+          <div class="g2-bezel-top">
+            <span>G2 RIGHT EYE WAVEGUIDE</span>
+            <span>R1 RING READY</span>
+          </div>
+          <div class="g2-lens">
+            <div class="g2-hdr">EVENPULSE INBOX (3)  |  TG:LIVE</div>
+            <ul class="g2-items">
+              <li class="g2-row selected">[P0] Alex Chen: Approve v1.2 deploy?</li>
+              <li class="g2-row">[P1] Maya Lin: PR #48 BLE latency fix</li>
+              <li class="g2-row">[P2] Daos Hub: Hackathon Sun 19:59</li>
+            </ul>
+            <div class="g2-ftr">SCROLL: Pick  |  TAP: AI Reply  |  2xTAP: Brief</div>
+          </div>
+          <div class="sheen" data-overlap-ok style="--sheen-t: 4.65s;"></div>
+        </div>
+
+        <!-- Right: Founder overload exits -> Calm G2 Copilot + real live app capture enter inside 4.54s-5.41s pause -->
+        <div class="s1-copy">
+          <div class="swap-slot noise-stack m" style="--in:rise; --t:calc(-1 * var(--dur-in)); --out:sink-out; --out-t:4.1s; --dur-out:0.35s;">
+            <span class="ep-pill urgent"><i data-icon="bell"></i> 27 UNREAD TELEGRAM CHATS</span>
+            <div class="noise-chip"><i data-icon="smartphone"></i> Constant phone pickups every 2 min</div>
+            <div class="noise-chip"><i data-icon="message-circle"></i> Buried P0 deploys &amp; pitch links</div>
+          </div>
+
+          <div class="swap-slot calm-stack m"
+               style="--in:rise; --t:4.58s; --in-dur:0.6s;"
+               data-sfx="pop" data-sfx-intent="appearance" data-sfx-vol="0.75">
+            <div class="calm-card">
+              <h1 class="title" style="font-size: calc(var(--u) * 4.2); margin-bottom: calc(var(--u) * 0.7); max-width:none;">
+                Phone stays <span class="accent">in your pocket.</span>
+              </h1>
+              <p class="sub" style="font-size: calc(var(--u) * 2.75); color: var(--fg); max-width:none;">
+                Telegram + AI Copilot on Even Realities G2.
+              </p>
+            </div>
+            <div class="live-shot" data-texture>
+              <div class="live-bar">
+                <span>LIVE COMPANION APP</span>
+                <span>TG:LIVE</span>
+              </div>
+              <img src="../assets/live-full-inbox.png" alt="Live EvenPulse Companion UI">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

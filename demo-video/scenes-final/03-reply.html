@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <style>
+    .s3-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.32fr) minmax(0, 0.68fr);
+      gap: calc(var(--u) * 3.0);
+      align-items: center;
+      padding-top: calc(var(--u) * 4.5);
+    }
+    .s3-grid > * {
+      min-width: 0;
+    }
+    .live-stage-col {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.4);
+      min-width: 0;
+    }
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.6);
+      min-width: 0;
+    }
+    .sent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      padding: 0.35em 0.85em;
+      border-radius: 999px;
+      background: #34ff8a;
+      color: #03150a;
+      font-weight: 800;
+      font-size: calc(var(--u) * 2.65);
+    }
+    .latency-card {
+      padding: calc(var(--u) * 1.6) calc(var(--u) * 2);
+      border-radius: calc(var(--u) * 1.8);
+      background: rgba(52, 255, 138, 0.09);
+      border: 1.5px solid rgba(52, 255, 138, 0.48);
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <header class="hud">
+    <p class="kicker m" style="--in:rise; --t:-0.2s;"><b>02</b> Real Live Execution · Under 3 Seconds</p>
+  </header>
+
+  <main class="stage">
+    <div class="safe s3-grid">
+      <!-- Left: REAL moving footage of EvenPulse G2 HUD opening full context + 3 smart drafts -> clicking R1 Ring Tap -> Sent "Approve Ship" + REPLIED -->
+      <div class="live-stage-col">
+        <div class="live-shot m" data-texture style="--in:left; --t:-0.2s;">
+          <div class="live-bar">
+            <span>LIVE RECORDING · EVEN G2 + R1 RING</span>
+            <span class="ep-pill live" style="font-size: calc(var(--u) * 2.3); padding: 0.12em 0.6em;">REAL BROWSER RUN</span>
+          </div>
+          <img data-frames="../assets/footage-reply" data-count="108" data-fps="16" data-at="1.0" alt="Real EvenPulse live R1 Ring reply flow">
+        </div>
+
+        <div class="hw-bar" style="margin-top:0;">
+          <span class="hw-btn"><i data-icon="chevron-right"></i> Scroll</span>
+          <span class="hw-btn ring m"
+                style="--in:press; --t:5.25s; --in-dur:0.4s;"
+                data-sfx="click" data-sfx-intent="button-press" data-sfx-vol="0.95">
+            <i data-icon="circle-dot"></i> R1 Ring Tap
+          </span>
+          <span class="hw-btn">Zero Typing</span>
+        </div>
+      </div>
+
+      <!-- Right: Live Telegram delivery bubble + under-3-second confirmation -->
+      <div class="right-col">
+        <div class="tg-win m" style="--in:right; --t:0.1s;">
+          <div class="tg-hdr">
+            <span><i data-icon="send" style="color: var(--accent);"></i> @evenpulse_bot</span>
+            <span class="ep-pill live">LIVE</span>
+          </div>
+          <div class="tg-body">
+            <div class="tg-msg">
+              <span class="tg-meta">Alex Chen</span>
+              Approve v1.2 deploy before 3 PM pitch?
+            </div>
+            <div class="tg-msg out m" style="--in:pop; --t:5.35s; --in-dur:0.45s;">
+              <span class="tg-meta">Sent via EvenPulse G2</span>
+              Approved — push v1.2 live now.
+            </div>
+          </div>
+        </div>
+
+        <div class="latency-card m" style="--in:rise; --t:12.02s; --in-dur:0.45s;"
+             data-sfx="success" data-sfx-intent="success" data-sfx-vol="1.3">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:calc(var(--u)*1);">
+            <span class="sent-badge"><i data-icon="circle-check"></i> Delivered Live</span>
+            <span class="ep-pill live num">&lt; 3s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

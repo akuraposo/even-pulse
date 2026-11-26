@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <style>
+    .s6-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+      gap: calc(var(--u) * 3.0);
+      align-items: center;
+      padding-top: calc(var(--u) * 4.5);
+    }
+    .s6-grid > * {
+      min-width: 0;
+    }
+    .s6-right {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.4);
+      min-width: 0;
+    }
+    .arch-card {
+      background: #0d1613;
+      border: 1.5px solid rgba(52, 255, 138, 0.34);
+      border-radius: calc(var(--u) * 1.8);
+      padding: calc(var(--u) * 1.6) calc(var(--u) * 1.9);
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 0.9);
+    }
+    .arch-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: calc(var(--u) * 2.8);
+      font-weight: 700;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+    .arch-desc {
+      margin: 0;
+      font-size: calc(var(--u) * 2.65);
+      line-height: 1.32;
+      color: var(--fg);
+    }
+    .proof-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--u) * 0.9);
+    }
+    .cmd-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: calc(var(--u) * 0.9);
+    }
+    .cmd-grid .ep-pill {
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <header class="hud">
+    <p class="kicker m" style="--in:rise; --t:-0.2s;"><b>05</b> Official Even Hub SDK &amp; Bidirectional Control</p>
+  </header>
+
+  <main class="stage">
+    <div class="safe s6-grid">
+      <!-- Left: REAL moving footage of OS Contextual Menu -> Channel Digest -> Live SDK Telemetry stream -->
+      <div class="live-shot m" data-texture style="--in:left; --t:-0.2s;">
+        <div class="live-bar">
+          <span>LIVE RECORDING · OS MENU -&gt; SDK TELEMETRY</span>
+          <span class="ep-pill live" style="font-size: calc(var(--u) * 2.3); padding: 0.12em 0.6em;">even_hub_sdk</span>
+        </div>
+        <img data-frames="../assets/footage-sdk" data-count="120" data-fps="14" data-at="0.7" alt="Real Even Hub SDK live OS Menu and Telemetry stream">
+      </div>
+
+      <!-- Right: Validated SDK constraints, Vitest + .ehpk verification, bidirectional slash commands -->
+      <div class="s6-right">
+        <div class="arch-card m" style="--in:right; --t:0.15s;">
+          <div class="arch-title"><i data-icon="cpu"></i> @evenrealities/even_hub_sdk</div>
+          <p class="arch-desc">4 validated containers, 4-bit green textColor 1-4, native OS menu routing.</p>
+        </div>
+
+        <div class="arch-card m" style="--in:rise; --t:3.4s; --in-dur:0.55s;">
+          <div class="proof-badges">
+            <span class="ep-pill live"><i data-icon="shield"></i> 19/19 Vitest</span>
+            <span class="ep-pill"><i data-icon="package"></i> even-pulse.ehpk</span>
+          </div>
+          <p class="arch-desc">Built &amp; packaged for Even Hub deployment.</p>
+        </div>
+
+        <div class="arch-card m"
+             style="--in:rise; --t:11.38s; --in-dur:0.45s;"
+             data-sfx="pop" data-sfx-intent="appearance" data-sfx-vol="0.8">
+          <div class="arch-title"><i data-icon="terminal"></i> Bidirectional Bot</div>
+          <div class="cmd-grid">
+            <span class="ep-pill live">/start</span>
+            <span class="ep-pill live">/urgent</span>
+            <span class="ep-pill live">/task</span>
+            <span class="ep-pill live">/brief</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

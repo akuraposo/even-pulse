@@ -1,0 +1,55 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "output": "../even-pulse-hackathon-demo.mp4",
+  "voiceover": {
+    "file": "assets/voiceover.wav",
+    "script": "assets/voiceover.txt",
+    "start": 0.3
+  },
+  "sound": {
+    "palette": "glass",
+    "key": "C major",
+    "space": "tight",
+    "fadeIn": 0.25,
+    "fadeOut": 0.7
+  },
+  "scenes": [
+    {
+      "file": "scenes/01-hook.html",
+      "duration": 12.616666666666666,
+      "energy": 0.4
+    },
+    {
+      "file": "scenes/02-triage.html",
+      "duration": 11.35,
+      "energy": 0.5
+    },
+    {
+      "file": "scenes/03-reply.html",
+      "duration": 13.433333333333334,
+      "energy": 1
+    },
+    {
+      "file": "scenes/04-voice.html",
+      "duration": 9.783333333333333,
+      "energy": 0.78
+    },
+    {
+      "file": "scenes/05-brief.html",
+      "duration": 12.35,
+      "energy": 0.85
+    },
+    {
+      "file": "scenes/06-sdk.html",
+      "duration": 12.966666666666667,
+      "energy": 0.45
+    },
+    {
+      "file": "scenes/07-close.html",
+      "duration": 10.916666666666666,
+      "energy": 0.62
+    }
+  ]
+}

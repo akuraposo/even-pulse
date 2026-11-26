@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../ui.css">
+  <link rel="stylesheet" href="../evenpulse-ui.css">
+  <script src="../icons.js"></script>
+  <script src="../motion.js"></script>
+  <script src="../out/anchors.js"></script>
+  <script src="../lib/words.js"></script>
+  <style>
+    .s5-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      gap: calc(var(--u) * 3.4);
+      align-items: center;
+      padding-top: calc(var(--u) * 4.5);
+    }
+    .s5-grid > * {
+      min-width: 0;
+    }
+    .brief-panel {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 1.4);
+      min-width: 0;
+    }
+    .meeting-box {
+      padding: calc(var(--u) * 1.6) calc(var(--u) * 1.9);
+      border-radius: calc(var(--u) * 1.6);
+      background: linear-gradient(135deg, rgba(52, 255, 138, 0.12), #121c18);
+      border: 1.5px solid rgba(52, 255, 138, 0.38);
+    }
+    .meeting-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: calc(var(--u) * 1);
+      font-size: calc(var(--u) * 2.85);
+      font-weight: 700;
+      margin-bottom: calc(var(--u) * 0.6);
+    }
+    .task-card {
+      padding: calc(var(--u) * 1.2) calc(var(--u) * 1.6);
+      border-radius: calc(var(--u) * 1.2);
+      background: #121c18;
+      border: 1px solid rgba(52, 255, 138, 0.24);
+      font-size: calc(var(--u) * 2.75);
+      display: flex;
+      align-items: center;
+      gap: calc(var(--u) * 1);
+    }
+    .task-card.checked {
+      color: var(--muted);
+      border-color: rgba(52, 255, 138, 0.48);
+      background: rgba(52, 255, 138, 0.08);
+    }
+    .swap-slot {
+      position: relative;
+      display: grid;
+    }
+    .swap-slot > * {
+      grid-area: 1 / 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="ep-grid-floor"></div>
+
+  <header class="hud">
+    <p class="kicker m" style="--in:rise; --t:-0.2s;"><b>04</b> Glanceable AI Work Brief</p>
+  </header>
+
+  <main class="stage">
+    <div class="safe s5-grid">
+      <!-- Left: G2 Work Brief with staggered task check-off at 7.88s (inside 7.77s-8.82s pause) -->
+      <div>
+        <div class="g2-bezel m" style="--in:rise; --t:-0.2s;">
+          <div class="g2-bezel-top">
+            <span>G2 WORK BRIEF</span>
+            <span>2x TAP GESTURE</span>
+          </div>
+          <div class="g2-lens">
+            <div class="swap-slot">
+              <div class="g2-hdr m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:7.75s; --dur-out:0.2s;">AI WORK BRIEF  |  4 OPEN TASKS</div>
+              <div class="g2-hdr m" style="--in:fade; --t:7.98s; --in-dur:0.22s;">AI WORK BRIEF  |  3 OPEN TASKS</div>
+            </div>
+
+            <div class="g2-box">NEXT: TVM Ventures Demo Sync (In 12m)<br>PREP: Show 1-tap TG reply + Voice-to-Task.</div>
+
+            <ul class="g2-items">
+              <li class="swap-slot">
+                <div class="g2-row selected m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:7.65s; --dur-out:0.2s;">[ ] Today Submit EvenPulse to DoraHacks</div>
+                <div class="g2-row selected m"
+                     style="--in:fade; --t:7.88s; --in-dur:0.22s;"
+                     data-sfx="tick" data-sfx-intent="checkmark" data-sfx-vol="1.5">[x] Today Submit EvenPulse to DoraHacks</div>
+              </li>
+              <li class="g2-row">[ ] 14:45 Approve v1.2 release for TVM</li>
+              <li class="g2-row">[ ] 17:00 Record G2 simulator demo video</li>
+            </ul>
+
+            <div class="swap-slot">
+              <div class="g2-ftr m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:7.85s; --dur-out:0.2s;">TAP: Toggle Task  |  2xTAP: Inbox</div>
+              <div class="g2-ftr toast m" style="--in:fade; --t:8.10s; --in-dur:0.22s;"><i data-icon="check"></i> Completed: Submit EvenPulse</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hw-bar">
+          <span class="hw-btn ring m"
+                style="--in:press; --t:2.85s; --in-dur:0.4s;"
+                data-sfx="blip" data-sfx-intent="step" data-sfx-vol="0.85">
+            <i data-icon="zap"></i> 2x Tap Brief
+          </span>
+          <span class="hw-btn primary m" style="--in:press; --t:7.82s; --in-dur:0.35s;">R1 Ring Tap</span>
+        </div>
+      </div>
+
+      <!-- Right: Verbatim AI Prep + Live Capture Proof -->
+      <div class="brief-panel m" style="--in:right; --t:0.1s;">
+        <div class="meeting-box">
+          <div class="meeting-top">
+            <span><i data-icon="calendar" style="color: var(--accent);"></i> TVM Ventures Demo Sync</span>
+            <span class="ep-pill live">In 12m</span>
+          </div>
+          <p class="body" style="font-size: calc(var(--u) * 2.65); color: var(--muted);">
+            AI Prep: Show 1-tap Telegram reply + Voice-to-Task.
+          </p>
+        </div>
+
+        <div class="swap-slot">
+          <div class="task-card m" style="--in:fade; --t:-0.2s; --out:fade-out; --out-t:7.95s; --dur-out:0.2s;">
+            <i data-icon="circle-dot" style="color: var(--accent);"></i>
+            <span>Submit EvenPulse to DoraHacks</span>
+          </div>
+          <div class="task-card checked m" style="--in:fade; --t:8.22s; --in-dur:0.22s;">
+            <i data-icon="circle-check" style="color: var(--accent);"></i>
+            <span>Submit EvenPulse to DoraHacks</span>
+          </div>
+        </div>
+
+        <div class="live-shot" data-texture>
+          <div class="live-bar">
+            <span>LIVE BRIEF CAPTURE</span>
+            <span>VIEW: BRIEF</span>
+          </div>
+          <img src="../assets/live-g2-brief.png" alt="Live Work Brief capture">
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

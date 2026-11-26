@@ -1,0 +1,27 @@
+{
+  "package_id": "com.evenpulse.g2",
+  "edition": "202601",
+  "name": "EvenPulse AI",
+  "version": "1.0.0",
+  "min_app_version": "2.2.10",
+  "min_sdk_version": "0.0.16",
+  "supported_languages": ["en"],
+  "tagline": "Heads-up Telegram & AI Work Copilot for Even G2",
+  "description": "Glanceable Telegram triage, 1-tap AI replies, voice-to-task, and meeting briefs built for Even Realities G2 & R1 Ring.",
+  "author": "EvenPulse Team",
+  "entrypoint": "index.html",
+  "permissions": [
+    {
+      "name": "network",
+      "desc": "Connect to EvenPulse API server for Telegram Bot polling, AI triage, and calendar sync.",
+      "whitelist": [
+        "http://localhost:3001",
+        "http://127.0.0.1:3001"
+      ]
+    },
+    {
+      "name": "g2-microphone",
+      "desc": "Capture voice commands on Even G2 glasses for hands-free Telegram replies and task creation."
+    }
+  ]
+}
