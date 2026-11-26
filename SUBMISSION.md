@@ -29,4 +29,10 @@ Double-tapping switches to the AI Work Brief, showing the next synced `.ics` cal
 - Built on `@evenrealities/even_hub_sdk` (`v0.0.16`) with `createStartUpPageContainer`, `rebuildPageContainer`, `MenuContainerProperty`, `audioControl`, `getDeviceInfo` / `onDeviceStatusChanged`, and `EventSourceType` (Glasses R vs. R1 Ring).
 - Express bridge (`server/`) isolates Telegram Bot API tokens and OpenRouter/Gemini/OpenAI keys from the frontend bundle, checks `.ics` calendar URLs against private/local networks, and persists messages, tasks, and next-meeting prep in `data/state.json`.
 - Vitest validates all five HUD views (`INBOX`, `MESSAGE`, `BRIEF`, `DIGEST`, `VOICE`) against `validateEvenHubPageContainer()` and 576x288 bounds, alongside AI JSON parsing, voice routing, Telegram secret redaction, API config preservation, ICS parsing, PCM-to-WAV encoding, and controller event handling.
-- Packages to `even-pulse.ehpk` via `@evenrealities/evenhub-cli pack app.json dist -o even-pulse.ehpk`, accompanied by `even-pulse-final.mp4`.
+- Packages to `even-pulse.ehpk` via `@evenrealities/evenhub-cli pack app.json dist -o even-pulse.ehpk`, accompanied by `even-pulse-final.mp4` (`1920x1080` at `60 fps`, cover `thumbnail.png`).
+
+### Links & Builder Contact
+- GitHub Repository: https://github.com/akuraposo/even-pulse
+- Builder X / Twitter: [@balapanmlayu](https://x.com/balapanmlayu)
+- Telegram Contact: [@akuraposo](https://t.me/akuraposo)
+- Demo Bot: `@evenpulse_bot`

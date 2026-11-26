@@ -81,4 +81,10 @@ npm test
 npm run build
 ```
 
-The Vitest suite verifies all five HUD views against `validateEvenHubPageContainer()` and 576x288 pixel bounds, rule-based and fenced-JSON AI triage, voice intent classification, public ICS URL checks and event parsing, Telegram token redaction, Express `/api/config` credential preservation, PCM-to-WAV encoding, and `EvenG2Controller` native and ring event handling.
+The Vitest suite verifies all five HUD views against `validateEvenHubPageContainer()` and 576x288 pixel bounds, rule-based and fenced-JSON AI triage, voice intent classification, public ICS URL checks and event parsing, Telegram token redaction, Express `/api/config` credential preservation, PCM-to-WAV encoding, and `EvenG2Controller` native and ring event handling (19 tests).
+
+## Links
+
+- Repository: https://github.com/akuraposo/even-pulse
+- Builder X / Twitter: [@balapanmlayu](https://x.com/balapanmlayu)
+- Telegram Contact: [@akuraposo](https://t.me/akuraposo)
