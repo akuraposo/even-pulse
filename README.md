@@ -6,6 +6,8 @@ Built for the Heads Up: Even Realities Hackathon on DoraHacks, targeting Track 0
 
 ![EvenPulse G2 Optical HUD and Companion UI](docs/preview.png)
 
+Demo video: https://youtu.be/8sijMe6Gy4o
+
 ## What it does
 
 EvenPulse reads incoming Telegram messages, scores urgency, and trims each message to fit the 576x288 Even G2 micro-LED display. From the glasses temple touchpad or the R1 Ring, you can open a message, send one of three AI-drafted replies back to Telegram, check off tasks in your work brief, or hold to speak a command.
@@ -85,6 +87,7 @@ The Vitest suite verifies all five HUD views against `validateEvenHubPageContain
 
 ## Links
 
+- Demo Video: https://youtu.be/8sijMe6Gy4o
 - Repository: https://github.com/akuraposo/even-pulse
 - Builder X / Twitter: [@balapanmlayu](https://x.com/balapanmlayu)
 - Telegram Contact: [@akuraposo](https://t.me/akuraposo)

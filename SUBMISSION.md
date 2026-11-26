@@ -32,6 +32,7 @@ Double-tapping opens the AI Work Brief with your next synced `.ics` calendar mee
 - `npm run pack` packages the build via `@evenrealities/evenhub-cli pack app.json dist -o even-pulse.ehpk`, paired with the demo video `even-pulse-final.mp4` (`1920x1080` at `60 fps`, cover `thumbnail.png`).
 
 ### Links and builder contact
+- Demo Video: https://youtu.be/8sijMe6Gy4o
 - GitHub Repository: https://github.com/akuraposo/even-pulse
 - Builder X / Twitter: [@balapanmlayu](https://x.com/balapanmlayu)
 - Telegram Contact: [@akuraposo](https://t.me/akuraposo)
